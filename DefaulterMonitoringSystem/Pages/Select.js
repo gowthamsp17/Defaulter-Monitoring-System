@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import { ipAddress } from '../App';
 
 const Select = ({ navigation }) => {
   const scaleAnim = useRef(new Animated.Value(0)).current;
@@ -32,7 +32,7 @@ const Select = ({ navigation }) => {
     const token = await AsyncStorage.getItem('token');
     console.log(token);
     axios
-      .post("http://192.168.137.234:5001/userdata", {token: token})
+      .post(`http://${ipAddress}:5001/userdata`, {token: token})
       .then(res => {
         console.log(res.data);
         setUserData(res.data.data);

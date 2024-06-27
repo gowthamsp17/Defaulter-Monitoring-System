@@ -21,6 +21,8 @@ import checkdefaulter from './Pages/checkDefaulter';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
+export const ipAddress = "192.168.239.7";
+
 const StaffStackScreen = () => {
   return (
     <Stack.Navigator>

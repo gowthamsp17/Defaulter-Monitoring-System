@@ -7,6 +7,7 @@ import * as SQLite from 'expo-sqlite';
 import { ScrollView } from 'react-native-gesture-handler';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ipAddress } from '../App';
 
 export default function LoginPage() {
   const navigation = useNavigation();
@@ -27,7 +28,7 @@ export default function LoginPage() {
       password
     }
     axios
-      .post("http://192.168.137.234:5001/login-user", userData)
+      .post(`http://${ipAddress}:5001/login-user`, userData)
       .then(res => {
         console.log(res.data);
         if(res.data.status == 'ok')

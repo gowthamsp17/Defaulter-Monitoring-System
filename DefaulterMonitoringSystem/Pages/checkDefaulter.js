@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as FileSystem from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import { Feather } from '@expo/vector-icons';
-
+import { ipAddress } from '../App';
 
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
@@ -26,7 +26,7 @@ export default function DefaulterList() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://192.168.137.234:5001/defaulterFetch');
+      const response = await axios.get(`http://${ipAddress}:5001/defaulterFetch`);
       setDefaulterData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -37,7 +37,7 @@ export default function DefaulterList() {
     try {
       console.log(departmentDD);
       console.log("Filtering data...");
-      const response = await axios.get(`http://192.168.137.234:5001/defaulterFetch?fromDate=${fromDate}&toDate=${toDate}&department=${departmentDD}`);
+      const response = await axios.get(`http://${ipAddress}:5001/defaulterFetch?fromDate=${fromDate}&toDate=${toDate}&department=${departmentDD}`);
       setDefaulterData(response.data);
       setFilterModalVisible(false); // Close the filter modal after filtering
     } catch (error) {

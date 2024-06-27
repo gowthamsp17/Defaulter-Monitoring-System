@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet, Image, ScrollView, Touchable
 //import { Feather } from 'react-native-feather';
 import { Eye, EyeOff } from 'react-native-feather';
 import axios from 'axios';
-
+import { ipAddress } from '../App';
 
 const RegisterStaff = () => {
   const [username, setUserName] = useState('');
@@ -28,7 +28,7 @@ const RegisterStaff = () => {
     if(usernameVerify && emailVerify && mobileVerify && passwordVerify)
     {
       axios
-        .post("http://192.168.137.234:5001/reg", userData)
+        .post(`http://${ipAddress}:5001/reg`, userData)
         .then(res => {console.log(res.data)
         if(res.data.status == 'ok'){
           Alert.alert('Registration Successful!!');

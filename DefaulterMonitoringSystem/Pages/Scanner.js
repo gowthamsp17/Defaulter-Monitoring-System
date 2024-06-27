@@ -149,7 +149,8 @@ export default function Scanner() {
     };
 
     axios.post(`http://${ipAddress}:5001/register`, userdata).then((res) => console.log(res.data)).catch((e) => console.log(e))
-  }
+  };
+  
   const resetScanner = () => {
     setScanned(false);
     setBarcodeData(null);

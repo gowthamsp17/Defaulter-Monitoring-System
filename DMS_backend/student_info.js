@@ -25,7 +25,8 @@ const StudentInformationSchema = new mongoose.Schema({
     RollNo:{type:String,unique:true},
     Dept:String,
     Section:String,
-    Year:Number
+    Year:Number,
+    MentorName:String
 },{
     collection:"StudentInformation"
 })

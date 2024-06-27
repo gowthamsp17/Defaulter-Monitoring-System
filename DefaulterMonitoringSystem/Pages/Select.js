@@ -61,7 +61,7 @@ const Select = ({ navigation }) => {
     <LinearGradient colors={['#7F7FD5', '#86A8E7', '#91EAE4']} style={styles.container}>
       <View style={styles.container1} >
         <StatusBar></StatusBar>
-        <Image source={require('../assets/VCET_Logo.png')} style={styles.image3} />
+        <Image source={require('../assets/VCET_Logo1.png')} style={styles.image3} />
         <View style={{flex : 0.3}}></View>
         <View style={styles.namedes}>
         <Text style={{fontWeight: 'bold', color: 'white', fontSize: 15, letterSpacing: 1}}>{userData.username}  :  {userData.email}</Text>
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     height: 100,
     position: 'absolute',
     top:'5%',
-    opacity: 1
+    opacity: 0.8
   },
   button: {
     width: 200,

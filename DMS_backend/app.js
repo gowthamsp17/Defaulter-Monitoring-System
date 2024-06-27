@@ -121,23 +121,24 @@ app.get('/student/:rollNo', async (req, res) => {
   });
 
 
-// app.post('/register',async(req,res)=>{
-//     const{roll,name}=req.body;
-//     try {
+app.post('/register',async(req,res)=>{
+    const{roll,name}=req.body;
+    try {
         
-//         await StudentInfo.create({
-//             Name:"Sriram Balaji",
-//             RollNo:"22LITB03",
-//             Dept:"IT",
-//             Section:"B",
-//             Year:3
+        await StudentInfo.create({
+            Name:"Sriram Balaji",
+            RollNo:"22LITB03",
+            Dept:"IT",
+            Section:"B",
+            Year:3,
+            MentorName:"Mrs. C.MANJULA DEVI"
             
-//         });
-//         res.send({status:"ok",data:"Data Inserted"});
-//     } catch (error) {
-//         res.send({status:"error",data:error});
-//     }
-// });
+        });
+        res.send({status:"ok",data:"Data Inserted"});
+    } catch (error) {
+        res.send({status:"error",data:error});
+    }
+});
 
 app.post('/mark-defaulter', async (req, res) => {
   try {

@@ -5,7 +5,7 @@
     "slug": "DMS",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/VCET_Logo.png",
+    "icon": "./assets/MadeInVCET.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/VCET_Logo.png",
@@ -20,12 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/VCET_Logo1.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/VCET_Logo1.png"
     }
   }
 }

@@ -28,7 +28,7 @@ const RegisterStaff = () => {
     if(usernameVerify && emailVerify && mobileVerify && passwordVerify)
     {
       axios
-        .post("http://192.168.239.7:5001/reg", userData)
+        .post("http://192.168.137.234:5001/reg", userData)
         .then(res => {console.log(res.data)
         if(res.data.status == 'ok'){
           Alert.alert('Registration Successful!!');

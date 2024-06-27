@@ -62,7 +62,7 @@ export default function Scanner() {
     };
 
     // Check if the roll number has already been scanned today
-    axios.get(`http://192.168.239.7:5001/check-scanned-today/${rolldb}`)
+    axios.get(`http://192.168.137.234:5001/check-scanned-today/${rolldb}`)
       .then((response) => {
         if (response.data.scannedToday) {
           // If already scanned today, show error message
@@ -70,7 +70,7 @@ export default function Scanner() {
         } else {
           // If not scanned today, proceed to mark as defaulter
           // Send POST request to mark the student as a defaulter
-          axios.post("http://192.168.239.7:5001/mark-defaulter", data)
+          axios.post("http://192.168.137.234:5001/mark-defaulter", data)
             .then((response) => {
               console.log(response.data);
               // Show success message
@@ -99,7 +99,7 @@ export default function Scanner() {
     setrollNo(data);
     console.log(rollNo);
 
-    if (rollNo == "21ITB19") {
+    if (rollNo == "21ITB29") {
       setverrollNo(true);
     }
     else {
@@ -107,7 +107,7 @@ export default function Scanner() {
     }
     setFlashMode(Camera.Constants.FlashMode.off);
   
-    axios.get(`http://192.168.239.7:5001/student/${data}`)
+    axios.get(`http://192.168.137.234:5001/student/${data}`)
       .then((response) => {
         // Check if the response contains data
         if (response.data) {
@@ -149,7 +149,7 @@ export default function Scanner() {
       name: namedb
     };
 
-    axios.post("http://192.168.239.7:5001/register", userdata).then((res) => console.log(res.data)).catch((e) => console.log(e))
+    axios.post("http://192.168.137.234:5001/register", userdata).then((res) => console.log(res.data)).catch((e) => console.log(e))
 
   }
   const resetScanner = () => {
@@ -162,14 +162,14 @@ export default function Scanner() {
     setrollNo(rollvar)
     console.log(rollNo);
     console.log(rollvar);
-    if (rollvar == "21ITB19") {
+    if (rollvar == "21ITB29") {
       setverrollNo(true);
     }
     else {
       setverrollNo(false);
     }
 
-    axios.get(`http://192.168.239.7:5001/student/${rollvar}`)
+    axios.get(`http://192.168.137.234:5001/student/${rollvar}`)
       .then((response) => {
         // Check if the response contains data
         if (response.data) {

@@ -32,7 +32,7 @@ const Select = ({ navigation }) => {
     const token = await AsyncStorage.getItem('token');
     console.log(token);
     axios
-      .post("http://192.168.239.7:5001/userdata", {token: token})
+      .post("http://192.168.137.234:5001/userdata", {token: token})
       .then(res => {
         console.log(res.data);
         setUserData(res.data.data);

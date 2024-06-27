@@ -27,7 +27,7 @@ export default function LoginPage() {
       password
     }
     axios
-      .post("http:// 192.168.77.36:5001/login-user", userData)
+      .post("http://192.168.137.234:5001/login-user", userData)
       .then(res => {
         console.log(res.data);
         if(res.data.status == 'ok')

@@ -15,7 +15,6 @@ mongoose.model("UserInfo1", UserDetailSchema);
 const StudentInfoSchema = new mongoose.Schema({
     RollNo:{type:String,unique:true},
     Name:String,
-   
 },{
     collection:"StudentInfos"
 })
@@ -67,6 +66,7 @@ mongoose.model("StudentInformation",StudentInformationSchema);
 // });
 
 // module.exports = mongoose.model("DefaulterTable", DefaulterSchema);
+
 const DefaulterSchema = new mongoose.Schema({
   Name: String,
   RollNo: String ,

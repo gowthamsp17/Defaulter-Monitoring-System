@@ -138,6 +138,7 @@ app.post('/register',async(req,res)=>{
         res.send({status:"error",data:error});
     }
 });
+
 app.post('/mark-defaulter', async (req, res) => {
   try {
     // Extract student information and checkbox information from request body
@@ -169,9 +170,10 @@ app.post('/mark-defaulter', async (req, res) => {
   } catch (error) {
     // Send error response
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(502).json({ error: 'Internal server error' });
   }
 });
+
 app.get('/check-scanned-today/:rollNo', async (req, res) => {
   try {
     const rollNo = req.params.rollNo;
@@ -183,8 +185,8 @@ app.get('/check-scanned-today/:rollNo', async (req, res) => {
     res.json({ scannedToday: isScannedToday });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
+    res.status(501).json({ error: 'Internal server error' });
+  }
 });
 
 

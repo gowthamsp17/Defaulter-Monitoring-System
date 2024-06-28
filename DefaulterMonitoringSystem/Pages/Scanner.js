@@ -35,6 +35,7 @@ export default function Scanner() {
   const [secdb, setsecdb] = useState("");
   const [deptdb, setdeptdb] = useState("");
   const [yeardb, setyeardb] = useState("");
+  const [mentordb, setmentordb] = useState("");
   const [verrollNo, setverrollNo] = useState(false);
 
 
@@ -62,7 +63,7 @@ export default function Scanner() {
     };
 
     // Check if the roll number has already been scanned today
-    axios.get(`http://${ipAddress}:5001/check-scanned-today/${rolldb}`)
+    axios.get(`${ipAddress}/check-scanned-today/${rolldb}`)
       .then((response) => {
         if (response.data.scannedToday) {
           // If already scanned today, show error message
@@ -70,7 +71,7 @@ export default function Scanner() {
         } else {
           // If not scanned today, proceed to mark as defaulter
           // Send POST request to mark the student as a defaulter
-          axios.post(`http://${ipAddress}:5001/mark-defaulter`, data)
+          axios.post(`${ipAddress}/mark-defaulter`, data)
             .then((response) => {
               console.log(response.data);
               // Show success message
@@ -107,7 +108,7 @@ export default function Scanner() {
     // }
     setFlashMode(Camera.Constants.FlashMode.off);
   
-    axios.get(`http://${ipAddress}:5001/student/${data}`)
+    axios.get(`${ipAddress}/student/${data}`)
       .then((response) => {
         // Check if the response contains data
         if (response.data) {
@@ -117,11 +118,13 @@ export default function Scanner() {
           setsecdb(response.data.Section)
           setdeptdb(response.data.Dept)
           setyeardb(response.data.Year)
+          setmentordb(response.data.MentorName)
           console.log(namedb);
           setverrollNo(true); // Set verification status to true
         } else {
           // If the roll number does not exist, reset the name state and verification status
           setnamedb("");
+
           setverrollNo(false);
         }
       })
@@ -131,10 +134,10 @@ export default function Scanner() {
       });
 
   };
-  // const handleTorchPress = () => {
-  //   // Handle button press action
-  //   Alert.alert('Button Pressed');
-  // };
+  const handleTorchPress = () => {
+    // Handle button press action
+    Alert.alert('Button Pressed');
+  };
   const toggleFlash = () => {
     setFlashMode(
       flashMode === Camera.Constants.FlashMode.off
@@ -148,9 +151,9 @@ export default function Scanner() {
       name: namedb
     };
 
-    axios.post(`http://${ipAddress}:5001/register`, userdata).then((res) => console.log(res.data)).catch((e) => console.log(e))
-  };
-  
+    axios.post(`${ipAddress}/register`, userdata).then((res) => console.log(res.data)).catch((e) => console.log(e))
+
+  }
   const resetScanner = () => {
     setScanned(false);
     setBarcodeData(null);
@@ -168,7 +171,7 @@ export default function Scanner() {
       setverrollNo(false);
     // }
 
-    axios.get(`http://${ipAddress}:5001/student/${rollvar}`)
+    axios.get(`${ipAddress}/student/${rollvar}`)
       .then((response) => {
         // Check if the response contains data
         if (response.data) {
@@ -178,11 +181,13 @@ export default function Scanner() {
           setsecdb(response.data.Section)
           setdeptdb(response.data.Dept)
           setyeardb(response.data.Year)
+          setmentordb(response.data.MentorName)
           console.log(namedb);
           setverrollNo(true); // Set verification status to true
         } else {
           // If the roll number does not exist, reset the name state and verification status
           setnamedb("");
+
           setverrollNo(false);
         }
       })
@@ -205,7 +210,9 @@ export default function Scanner() {
   return (
     <View style={{ flex: 1, backgroundColor: '#031F47' }}>
       <View style={styles.container}>
-        <Image source={require('../assets/VCET_Logo.png')} style={{ width: 100, height: 100, marginTop: 20 }} />
+        <View style={{width: 115, height: 115, marginTop: 20, borderRadius: 60, backgroundColor: "#A2D8FF", alignItems: "center"}}>
+          <Image source={require('../assets/VCET_Logo1.png')} style={{ width: 100, height: 100, marginTop: 5, marginRight: 2 }} />
+        </View>
         <View style={styles.afterscan}>
           <View style={styles.roll}>
             <TextInput placeholder="Enter the Rollno Manually" value={rollNo} onChangeText={setrollNo} onChange={e => handlerollNo(e)} />
@@ -270,18 +277,20 @@ export default function Scanner() {
                 <Text style={styles.heading}>STUDENT INFORMATION</Text>
                 <View style={styles.rowflex}>
                   <View style={[styles.ques, { fontSize: 16 }]}>
-                    <Text style={styles.textq}>Name:</Text>
-                    <Text style={styles.textq}>Roll No:</Text>
-                    <Text style={styles.textq}>Department:</Text>
-                    <Text style={styles.textq}>Section:</Text>
-                    <Text style={styles.textq}>Year:</Text>
+                    <Text style={styles.textq}>Name</Text>
+                    <Text style={styles.textq}>Roll No</Text>
+                    <Text style={styles.textq}>Department</Text>
+                    <Text style={styles.textq}>Section</Text>
+                    <Text style={styles.textq}>Year </Text>
+                    <Text style={styles.textq}>Mentor</Text>
                   </View>
                   <View style={styles.ans}>
-                    <Text style={styles.text}>{namedb}</Text>
-                    <Text style={styles.text}>{rolldb}</Text>
-                    <Text style={styles.text}>{deptdb}</Text>
-                    <Text style={styles.text}>{secdb}</Text>
-                    <Text style={styles.text}>{yeardb}</Text>
+                    <Text style={styles.text}>: {namedb}</Text>
+                    <Text style={styles.text}>: {rolldb}</Text>
+                    <Text style={styles.text}>: {deptdb}</Text>
+                    <Text style={styles.text}>: {secdb}</Text>
+                    <Text style={styles.text}>: {yeardb}</Text>
+                    <Text style={styles.text}>: {mentordb}</Text>
                   </View>
                   
                 </View>
@@ -632,7 +641,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     color: 'black',
-    fontWeight: '500'
+    fontWeight: '500',
+    letterSpacing: 0.5
   },
   textq: {
     fontSize: 15,

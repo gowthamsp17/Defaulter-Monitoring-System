@@ -26,7 +26,7 @@ export default function DefaulterList() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://${ipAddress}:5001/defaulterFetch`);
+      const response = await axios.get(`${ipAddress}/defaulterFetch`);
       setDefaulterData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -37,7 +37,7 @@ export default function DefaulterList() {
     try {
       console.log(departmentDD);
       console.log("Filtering data...");
-      const response = await axios.get(`http://${ipAddress}:5001/defaulterFetch?fromDate=${fromDate}&toDate=${toDate}&department=${departmentDD}`);
+      const response = await axios.get(`${ipAddress}/defaulterFetch?fromDate=${fromDate}&toDate=${toDate}&department=${departmentDD}`);
       setDefaulterData(response.data);
       setFilterModalVisible(false); // Close the filter modal after filtering
     } catch (error) {
@@ -218,6 +218,7 @@ export default function DefaulterList() {
             <Text style={styles.rollNo}>Roll No: {defaulter.RollNo}</Text>
             <Text style={styles.deptcard}>{defaulter.Dept}</Text>
             <Text style={styles.date}>Date: {formatDate(defaulter.createdAt)}</Text>
+            {/* <Text style={styles.date}>Mentor: {defaulter.MentorName}</Text> */}
             <Text style={styles.details}>
               Type of Defaulter: {getDefaulterTypes(defaulter)}
             </Text>

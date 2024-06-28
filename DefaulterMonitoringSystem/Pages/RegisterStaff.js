@@ -28,7 +28,7 @@ const RegisterStaff = () => {
     if(usernameVerify && emailVerify && mobileVerify && passwordVerify)
     {
       axios
-        .post(`http://${ipAddress}:5001/reg`, userData)
+        .post(`${ipAddress}/reg`, userData)
         .then(res => {console.log(res.data)
         if(res.data.status == 'ok'){
           Alert.alert('Registration Successful!!');

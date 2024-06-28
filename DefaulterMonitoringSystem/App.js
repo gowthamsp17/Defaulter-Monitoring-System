@@ -60,7 +60,7 @@ const CustomHeader = () => {
   return (
     <View>
         <Image
-          source={require('./assets/VCET_Logo.png')} // Replace 'path_to_your_image.png' with the actual path to your image file
+          source={require('./assets/VCET_Logo1.png')} // Replace 'path_to_your_image.png' with the actual path to your image file
           style={{height: 35, width: 35, marginRight: 20, marginTop: 3}}
         />
     </View>
@@ -74,7 +74,7 @@ const CustomDrawerContent = (props) => {
 
       <View style={{alignItems:"center", marginTop: 20,}}>
         <Image 
-            source={require('./assets/VCET_Logo.png')} 
+            source={require('./assets/VCET_Logo1.png')} 
             style={{height: 80, width: 80}} />
       </View>
 

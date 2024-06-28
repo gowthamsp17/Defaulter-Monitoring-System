@@ -28,7 +28,7 @@ const HomePage = ({ navigation }) => {
         {({ pressed }) => (
           <View style={styles.buttonContent}>
             <Image
-              source={require('../assets/admin-out.png')} // Replace 'admin_icon.png' with the actual path to your admin icon
+              source={require('../assets/admin-out1.png')} // Replace 'admin_icon.png' with the actual path to your admin icon
               style={[styles.icon, pressed && { opacity: 0.5 }]} // Reduce opacity when pressed
             />
             <Text style={styles.buttonText}>Admin Login</Text>
@@ -45,7 +45,7 @@ const HomePage = ({ navigation }) => {
         {({ pressed }) => (
           <View style={styles.buttonContent}>
             <Image
-              source={require('../assets/staff-out.png')} // Replace 'staff_icon.png' with the actual path to your staff icon
+              source={require('../assets/staff-out1.png')} // Replace 'staff_icon.png' with the actual path to your staff icon
               style={[styles.icon, pressed && { opacity: 0.5
                }]} // Reduce opacity when pressed
             />

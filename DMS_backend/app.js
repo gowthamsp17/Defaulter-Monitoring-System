@@ -227,7 +227,7 @@ app.get('/check-scanned-today/:rollNo', async (req, res) => {
     }
 
       // Fetch defaulter data based on the query
-      const defaulters = await Defaulter.find(query);
+      const defaulters = (await Defaulter.find(query)).reverse();
   
       res.json(defaulters);
     } catch (error) {

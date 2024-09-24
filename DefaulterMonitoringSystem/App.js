@@ -21,7 +21,7 @@ import checkdefaulter from './Pages/checkDefaulter';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-export const ipAddress = "http://192.168.137.234:5001";
+export const ipAddress = "http://192.168.52.7:5001";
 
 const StaffStackScreen = () => {
   return (
@@ -158,7 +158,7 @@ const HomeNav = () => {
         }}>
         <Drawer.Screen name="Home" component={HomePage} 
           options={{ 
-            title : 'Defaulter Monitor System',
+            title : 'D.M.S',
             drawerLabel: 'Home',
             headerStyle: { backgroundColor: '#009EFF'}, 
             headerRight: () => <CustomHeader/>,

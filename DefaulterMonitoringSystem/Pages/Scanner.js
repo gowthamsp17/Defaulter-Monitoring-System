@@ -405,8 +405,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderColor: 'white',
     borderBottomEndRadius: 40,
-    width: 278,
-    height: 337,
+    width: 250,
+    height: 275,
     overflow: 'hidden',
 
   },
@@ -475,15 +475,12 @@ const styles = StyleSheet.create({
 
   scannedView:
   {
-
     borderWidth: 4,
     borderRadius: 30,
     borderColor: "#39F930",
-    width: 278,
-    height: 337,
+    width: 250,
+    height: 275,
     overflow: 'hidden',
-
-
   },
   textInput: {
     marginLeft: 10,
@@ -500,9 +497,8 @@ const styles = StyleSheet.create({
   },
 
   camera: {
-    width: 270,
-    height: 330,
-
+    width: 250,
+    height: 275,
     overflow: 'hidden', // Clip the camera inside the outlined view
   },
 
@@ -517,9 +513,9 @@ const styles = StyleSheet.create({
   // },
   QrBg: {
     position: 'relative',
-    width: 360,
-    height: 410,
-    marginTop: -375,
+    width: 300,
+    height: 345,
+    marginTop: -310,
   },
   scanText: {
     color: 'white',
@@ -568,13 +564,13 @@ const styles = StyleSheet.create({
 
   },
   torch: {
-    transform: [{ rotate: '225deg' }, { scale: 0.35 }, { translateY: 190 }, { translateX: 190 }],
+    transform: [{ rotate: '225deg' }, { scale: 0.25 }, { translateY: 170 }, { translateX: 190 }],
     backgroundColor: 'white',
     padding: 15,
     borderRadius: 160,
     elevation: 20,
-    shadowColor: 'black'
-
+    shadowColor: 'black',
+    marginTop: -20
   },
   containerScanned: {
     padding: 10,

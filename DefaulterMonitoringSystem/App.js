@@ -21,14 +21,14 @@ import checkdefaulter from './Pages/checkDefaulter';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-export const ipAddress = "http://192.168.52.7:5001";
+export const ipAddress = "http://192.168.115.7:5001";
 
 const StaffStackScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="StaffLogin" component={StaffLogin} options={{headerShown: false} } />
       <Stack.Screen name="Select" component={StaffNav} options={{ headerShown: false }} /> 
-      <Stack.Screen name="DefaulterMarking" component={DefaulterMarking} options={{ headerShown: false}}/>
+      {/* <Stack.Screen name="DefaulterMarking" component={DefaulterMarking} options={{ headerShown: false}}/> */}
       <Stack.Screen name="Scanner" component={Scanner} options={{headerShown: false}} />
       <Stack.Screen name="CheckDefaulter" component={checkdefaulter} options={{headerShown: false}}/>
     </Stack.Navigator>
@@ -38,7 +38,7 @@ const StaffNavScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Select1" component={Select} options={{ headerShown: false }}/>
-      <Stack.Screen name="DefaulterMarking" component={DefaulterMarking} options={{ headerShown: false}}/>
+      {/* <Stack.Screen name="DefaulterMarking" component={DefaulterMarking} options={{ headerShown: false}}/> */}
       <Stack.Screen name="Scanner" component={Scanner} options={{headerShown: false}}/>
       <Stack.Screen name="CheckDefaulter" component={checkdefaulter} options={{headerShown: false}}/>
       <Stack.Screen name="Homee" component={HomeNav} options={{headerShown: false, }} />
@@ -49,7 +49,7 @@ const AdminStackScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="AdminLogin" component={AdminLogin} options={{headerShown: false}} />
-      <Stack.Screen name="Scanner" component={Scanner} options={{headerShown: false}}/>
+      {/* <Stack.Screen name="Scanner" component={Scanner} options={{headerShown: false}}/> */}
       <Stack.Screen name="AdminSelect" component={AdminSelect} options={{headerShown: false}}/>
       <Stack.Screen name="Register" component={RegisterStaff} options={{headerShown: false}}/>
     </Stack.Navigator>
@@ -91,7 +91,7 @@ const CustomDrawerContent = (props) => {
         label="Sign Out"
         onPress={() => {
           AsyncStorage.setItem('isLoggedIn', '');
-          navigation.navigate('Home'); 
+          navigation.navigate('Homee'); 
         }}
         icon={({ color, size }) => <Ionicons name="log-out-outline" size={size} color={color} />} // Using Ionicons as the icon
       />

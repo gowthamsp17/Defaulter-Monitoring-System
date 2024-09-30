@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const mongoose=require('mongoose');
-const mongoUrl="mongodb+srv://vcetdms:dmsadmin@cluster0.c7gpjhv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const mongoUrl="mongodb+srv://vcetdms01:dmsadmin2025@cluster0.o561g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 require('./student_info');
 app.use(express.json());
 

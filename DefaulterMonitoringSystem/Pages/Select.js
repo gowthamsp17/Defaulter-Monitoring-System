@@ -59,6 +59,8 @@ const Select = ({ navigation }) => {
   return (
     /* <LinearGradient colors={['#6190E8',  '#A7BFE8']} style={styles.container}> */
     <LinearGradient colors={['#7F7FD5', '#86A8E7', '#91EAE4']} style={styles.container}>
+    {/* <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps='always'> */}
+
       <View style={styles.container1} >
         <StatusBar></StatusBar>
         <Image source={require('../assets/VCET_Logo1.png')} style={styles.image3} />
@@ -133,8 +135,8 @@ const styles = StyleSheet.create({
   image3: {
     width: 100,
     height: 100,
-    position: 'absolute',
-    top:'5%',
+    position: 'relative',
+    top:'3%',
     opacity: 0.8
   },
   button: {
@@ -163,17 +165,19 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     alignItems:'center',
     padding: 20,
-    paddingTop: 60,
-    height:280,
+    paddingTop: 40,
+    height:250,
     paddingHorizontal: 30,
     borderColor: 'white',
     borderWidth: 5,
     elevation: 20,
     zIndex: 1,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    marginBottom: 15
   },
   namedes: {
-    marginTop: 50,
+    marginTop: 5,
+    marginBottom: 30,
     borderColor: "white",
     borderWidth: 2,
     width: 500,
